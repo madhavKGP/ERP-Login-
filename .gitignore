@@ -1,0 +1,11 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archives built locally (keep the committed release zip, ignore the rest)
+*.log
+
+# Keep secrets out
+*.pem
+*.key

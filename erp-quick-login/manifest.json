@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "ERP Quick Login",
+  "version": "1.0.0",
+  "description": "Unofficial helper for the IIT Kharagpur ERP login. Fills your saved User ID, password and security answer, then requests the OTP.",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ERP Quick Login",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "popup.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://erp.iitkgp.ac.in/*"],
+      "js": ["match.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

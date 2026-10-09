@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ERP Quick Login</title>
+  <style>
+    :root{
+      --bg:#ffffff; --fg:#0f172a; --muted:#64748b; --line:#e2e8f0; --field:#f8fafc;
+      --accent:#1e3c72; --accent-2:#2a5298; --ok:#15803d; --err:#b91c1c;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0f172a; --fg:#e2e8f0; --muted:#94a3b8; --line:#1e293b; --field:#111c33; --accent:#3b6fd1; --accent-2:#5a8ae6; --ok:#4ade80; --err:#f87171; }
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font:13px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif;width:380px;max-width:100%}
+    body.tab{width:auto;max-width:480px;margin:24px auto;padding:0 16px}
+    header{padding:14px 16px 10px;border-bottom:1px solid var(--line)}
+    h1{margin:0;font-size:15px}
+    header p{margin:2px 0 0;color:var(--muted);font-size:12px}
+    main{padding:12px 16px 4px}
+    section{margin-bottom:14px}
+    h2{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+    label{display:block;font-weight:600;margin:0 0 4px}
+    .field{margin-bottom:10px}
+    input[type=text],input[type=password]{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:7px;background:var(--field);color:var(--fg);font:inherit}
+    input:focus{outline:2px solid var(--accent-2);outline-offset:-1px;border-color:transparent}
+    .pw{display:flex;gap:6px}
+    .pw input{flex:1}
+    button{font:inherit;cursor:pointer;border-radius:7px;border:1px solid var(--line);background:var(--field);color:var(--fg);padding:6px 10px}
+    button:hover{border-color:var(--accent-2)}
+    .qa{border:1px solid var(--line);border-radius:9px;padding:8px;margin-bottom:8px}
+    .qa .top{display:flex;gap:6px;align-items:center;margin-bottom:6px}
+    .qa .top input{flex:1}
+    .qa .rm{padding:4px 8px;color:var(--muted)}
+    .tag{font-size:11px;color:var(--accent-2);margin:0 0 4px}
+    .check{display:flex;gap:8px;align-items:flex-start;font-weight:400;margin-bottom:6px}
+    .check input{margin-top:2px}
+    .hint{color:var(--muted);font-size:12px;margin:0 0 8px}
+    footer{display:flex;gap:8px;padding:10px 16px 14px;border-top:1px solid var(--line)}
+    .primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;flex:1}
+    .primary:hover{background:var(--accent-2)}
+    #status{min-height:18px;padding:0 16px 12px;font-size:12px}
+    #status.ok{color:var(--ok)} #status.err{color:var(--err)}
+    .note{color:var(--muted);font-size:11px;padding:0 16px 14px;margin:0}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ERP Quick Login</h1>
+    <p>Fills everything on erp.iitkgp.ac.in and presses Get OTP. You type the OTP.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Login</h2>
+      <div class="field">
+        <label for="userId">User ID</label>
+        <input id="userId" type="text" autocomplete="off" spellcheck="false" placeholder="Roll number">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="pw">
+          <input id="password" type="password" autocomplete="off" spellcheck="false">
+          <button type="button" class="toggle" data-for="password" aria-label="Show password">Show</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Security questions</h2>
+      <p class="hint">Exact wording isn't required; close is enough. Questions the ERP has shown you appear here automatically, so you only add the answer.</p>
+      <div id="qaList"></div>
+      <button type="button" id="addQa">+ Add question</button>
+    </section>
+
+    <section>
+      <h2>Behaviour</h2>
+      <label class="check"><input type="checkbox" id="autoFill"> Fill automatically when the login page opens</label>
+      <label class="check"><input type="checkbox" id="autoOtp"> Press Get OTP after filling</label>
+      <label class="check"><input type="checkbox" id="autoClosePopup"> Close the "OTP Sent" dialog and jump to the OTP box</label>
+    </section>
+  </main>
+
+  <footer>
+    <button type="button" class="primary" id="save">Save</button>
+    <button type="button" id="runNow" title="Fill the ERP login page in the current tab">Fill this tab</button>
+  </footer>
+  <div id="status" role="status" aria-live="polite"></div>
+  <p class="note">Saved only in this browser on this computer. Nothing is sent anywhere except the ERP login form. Unofficial tool, not affiliated with IIT Kharagpur.</p>
+
+  <script src="match.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

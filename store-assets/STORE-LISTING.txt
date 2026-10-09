@@ -1,0 +1,117 @@
+ERP QUICK LOGIN - STORE SUBMISSION KIT
+Copy each block into the matching field. Works for both the Chrome Web Store
+and Microsoft Edge Add-ons (Edge is free to publish; Chrome costs a one-time $5).
+
+==============================================================================
+BEFORE YOU START: host the privacy policy (free, 2 minutes)
+==============================================================================
+1. Open privacy-policy.md and replace [YOUR EMAIL HERE] with the email you
+   want people to contact you on.
+2. Go to https://gist.github.com (sign in to GitHub).
+3. Filename: privacy-policy.md . Paste the whole file. Click "Create public gist".
+4. Copy the page URL. That is your Privacy policy URL.
+
+==============================================================================
+FILES TO UPLOAD
+==============================================================================
+Package (zip) ............. erp-quick-login.zip
+Store icon ................ already inside the zip (icons/icon128.png)
+Edge logo (300x300) ....... logo-300x300-edge.png
+Small promo tile 440x280 .. promo-small-440x280.png   (required on Chrome)
+Screenshots 1280x800 ...... screenshot-1-login.png
+                            screenshot-2-setup.png
+                            screenshot-3-privacy.png
+
+==============================================================================
+STORE LISTING
+==============================================================================
+Name:
+ERP Quick Login
+
+Short description / Summary (comes from the zip automatically):
+Unofficial helper for the IIT Kharagpur ERP login. Fills your saved User ID, password and security answer, then requests the OTP.
+
+Category:
+Chrome: Workflow & Planning      Edge: Productivity
+
+Language:
+English
+
+Description:
+------------------------------------------------------------------------------
+Tired of typing your User ID, password and security answer every time you log in to the IIT Kharagpur ERP? ERP Quick Login does it for you.
+
+How it works
+• Open the ERP login page. Your User ID and password are filled in.
+• The security question loads and the matching answer is filled in.
+• Get OTP is pressed for you. Type the OTP from your email and press Enter.
+
+Features
+• Works with all of your security questions. Close wording is enough: "school" finds "What was the name of your first school?"
+• Learns new questions: type the answer once and it is remembered after you log in.
+• Closes the "OTP Sent" dialog and puts your cursor in the OTP box.
+• A "Quick login" button on the page lets you run it again.
+• Every automatic step can be switched off in the settings.
+
+Privacy
+• Your details are saved only in your browser, on your computer.
+• No servers, no analytics, no tracking. Nothing is sent anywhere except the ERP login form itself.
+• Runs only on erp.iitkgp.ac.in.
+• Don't use it on a shared computer: anyone with access to your browser could read the saved details.
+
+You still type the OTP yourself, so the ERP's two-step login stays in place.
+
+Unofficial tool. Not affiliated with or endorsed by IIT Kharagpur.
+------------------------------------------------------------------------------
+
+Search terms (Edge only, max 7):
+ERP | IIT Kharagpur | IIT KGP | KGP ERP | autofill | login | OTP
+
+==============================================================================
+PRIVACY PRACTICES TAB
+==============================================================================
+Single purpose:
+Fills the IIT Kharagpur ERP login form (erp.iitkgp.ac.in) with the user's saved User ID, password and security answer, then presses the page's "Get OTP" button so the user only has to type the OTP.
+
+Permission justification - storage:
+Saves the user's ERP User ID, password, security questions/answers and settings locally on their device (chrome.storage.local) so the login form can be filled on each visit. Nothing is synced or sent to any server.
+
+Permission justification - host permission (https://erp.iitkgp.ac.in/*):
+The content script runs only on the ERP website. On the login page it fills the form fields and clicks "Get OTP". On other ERP pages it only saves a security answer the user typed during the login that just succeeded. It does not run on any other site.
+
+Are you using remote code?
+No, I am not using remote code.
+
+Data usage - tick these:
+[x] Personally identifiable information   (ERP User ID / roll number)
+[x] Authentication information            (password, security answers)
+Leave every other type unticked.
+
+Certifications - tick all three:
+[x] I do not sell or transfer user data to third parties, outside of the approved use cases
+[x] I do not use or transfer user data for purposes that are unrelated to my item's single purpose
+[x] I do not use or transfer user data to determine creditworthiness or for lending purposes
+
+Privacy policy URL:
+<your gist URL>
+
+==============================================================================
+DISTRIBUTION
+==============================================================================
+Payment: Free
+Visibility: Public (anyone can find it)  -or-  Unlisted (only people with the link;
+            good if you just want to share it with your batch)
+Regions: All regions (or just India)
+
+==============================================================================
+TEST INSTRUCTIONS / NOTES FOR CERTIFICATION
+==============================================================================
+The extension only works on the IIT Kharagpur ERP login page (https://erp.iitkgp.ac.in/), which needs an institute account, so a full login can't be completed without real credentials.
+
+To check the behaviour:
+1. Install the extension and click its toolbar icon. Enter any sample User ID, password and security answer, then click Save.
+2. Open https://erp.iitkgp.ac.in/ . The User ID and password fields are filled in automatically and a "Quick login" button appears at the bottom-right.
+3. With a sample (invalid) User ID the ERP does not return a security question, so the extension shows "The security question didn't load" and does not press Get OTP.
+4. With a real account, the security answer is filled in, Get OTP is pressed, and the user types the emailed OTP and presses Enter to log in.
+
+All data is stored locally with chrome.storage.local. The extension makes no network requests of its own and contains no remote code or analytics.
